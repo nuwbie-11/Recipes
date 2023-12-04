@@ -14,7 +14,6 @@ class _HomePagesState extends State<HomePages> {
   Map data = {};
   final filterController = TextEditingController();
 
-  String _category = "";
   bool isLoading = false;
 
   @override

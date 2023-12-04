@@ -59,6 +59,7 @@ class Cards extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.only(
+              top: 8,
               bottom: 15,
               right: 12,
               left: 12,
@@ -67,14 +68,23 @@ class Cards extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(
-                  image: NetworkImage(data[imgTarget[cases]]),
-                  width: 128,
-                  height: 128,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image(
+                    image: NetworkImage(data[imgTarget[cases]]),
+                    width: 128,
+                    height: 128,
+                  ),
                 ),
-                SizedBox(
-                  width: 128,
-                  child: Text(data[labelTarget[cases]]),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: SizedBox(
+                    width: 128,
+                    child: Text(
+                      data[labelTarget[cases]],
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 )
               ],
             ),

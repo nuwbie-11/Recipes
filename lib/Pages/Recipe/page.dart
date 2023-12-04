@@ -111,51 +111,64 @@ class _CuisineState extends State<Cuisine> {
                             ],
                           )),
                       SingleChildScrollView(
-                          child: Row(
+                          child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0, top: 12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 12),
-                                  child: Text(
-                                    "Ingredients",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Text(cuisineData['idMeal']),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 12),
+                                      child: Text(
+                                        "Ingredients",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                    for (String key in cuisineData.keys)
+                                      if ((key.contains("Ingredient")) &&
+                                          (cuisineData[key] != "") &&
+                                          (cuisineData[key] != null))
+                                        Container(
+                                            color: Colors.blue,
+                                            child: Text(cuisineData[key]))
+                                  ],
                                 ),
-                                for (String key in cuisineData.keys)
-                                  if ((key.contains("Ingredient")) &&
-                                      (cuisineData[key] != ""))
-                                    Text(cuisineData[key])
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 12),
+                                      child: Text(
+                                        "",
+                                      ),
+                                    ),
+                                    for (String key in cuisineData.keys)
+                                      if ((key.contains("Measure")) &&
+                                          (cuisineData[key] != "") &&
+                                          (cuisineData[key] != null))
+                                        Text(cuisineData[key]),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0, top: 12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 12),
-                                  child: Text(
-                                    "",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                                for (String key in cuisineData.keys)
-                                  if ((key.contains("Measure")) &&
-                                      (cuisineData[key] != ""))
-                                    Text(cuisineData[key])
-                              ],
-                            ),
+                          Container(
+                            width: 128,
+                            height: 128,
+                            color: Colors.blue,
                           )
                         ],
                       ))
